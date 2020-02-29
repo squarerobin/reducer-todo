@@ -1,7 +1,7 @@
 import React, {useState, useReducer} from "react";
 import { todoFormReducer, initialState } from '../../reducers/todoFormReducer';
 
-function TodoForm(props) {
+function TodoForm() {
   const [state, dispatch] = useReducer(todoFormReducer, initialState)
   const [newInputText, setNewInputText] = useState('');
 
@@ -58,10 +58,10 @@ function TodoForm(props) {
         value={newInputText}
         onChange={handleChanges}
       ></input>
-      <button className="add-to-do-btn" onClick={()=>dispatch({type:'ADD_TODO'})}>
+      <button className="add-to-do-btn" onClick={() => dispatch({type: 'ADD_TODO'})}>
         <span>Add Todo</span>
       </button>
-      <button className="clear-btn" onClick={() => dispatch({type: 'CLEAR_COMPLETED'})}>
+      <button className="clear-btn" onClick={() => dispatch({type: 'CLEAR_COMPLETED' })}>
         <span>Clear Completed</span>
       </button>
     </form>
