@@ -39,14 +39,14 @@ export const initialState = {
   };
   
   export const todoListReducer = (state, action) => {
-    console.log(action);
+    console.log(state,action);
     switch (action.type) {
       case 'TOGGLE_ITEM':
         return {
           ...state,
           todoItems: state.todoItems.map(item => {
            // console.log(item);
-            if (action.payload === item.id) {
+            if (Date.now() === item.id) {
               return {
                 ...item,
                 completed: !item.completed

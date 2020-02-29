@@ -43,22 +43,21 @@ export const initialState = {
     //console.log(action);
     switch (action.type) {
      
-      case 'SUBMIT_ITEM':
+    /*   case 'SUBMIT_ITEM':
         return {
-          ...state,
-          todoItem: action.payload,
-        };
+         
+        }; */
        case "ADD_TODO":
         
            console.log('ADD_TODO state', state)
          return {
            ...state,
-           todoItems: [...state.todoItems, state.todoItem]
+           todoItems: [...state.todoItems, action.payload]
         }
         case "CLEAR_COMPLETED":
             return {
                 ...state,
-                todoItems: state.todoItems.filter(item => item.completed === true)
+                todoItems: state.todoItems.filter(item => item.completed === false)
     
 
             }
