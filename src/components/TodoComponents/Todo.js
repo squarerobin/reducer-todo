@@ -1,4 +1,5 @@
 import React from "react";
+import {todoReducer, initialState} from "../../reducers/todoReducer"
 
 const Todo = props => {
     console.log(props)

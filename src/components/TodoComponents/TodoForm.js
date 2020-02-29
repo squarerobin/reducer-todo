@@ -1,49 +1,72 @@
-import React from "react";
+import React, {useState, useReducer} from "react";
+import { todoFormReducer, initialState } from '../../reducers/todoFormReducer';
 
-class TodoForm extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      todoItem1: ""
-    };
-  }
+function TodoForm() {
+  const [state, dispatch] = useReducer(todoFormReducer, initialState)
+  const [newInputText, setNewInputText] = useState('');
 
-  handleChanges = e => {
+
+
+ const handleChanges = e => {
     // update state with each keystroke
     // console.log(e)
-    this.setState({ [e.target.name]: e.target.value });
-    // console.log(this.state);
+    setNewInputText(e.target.value)
+    // console.log(state);
   };
 
   // class property to submit form
-  submitItem = e => {
+ /*  const submitItem = e => {
     e.preventDefault()
-    console.log(this.props)
-    this.props.addItem(e, this.state.todoItem1)
-    this.setState({ todoItem1: "" })
-  };
+    props.addItem(e, state.todoItem1)
+    setState({ todoItem1: "" })
+  }; */
+  /*  const clearCompleted = e => {
+    e.preventDefault();
+    this.setState({
+      // returns the items that haven't been completed and purges
+      // the ones that have been completed
+      todoItems: state.todoItems.filter(item => item.completed === false)
+    });
+    console.log(state.todoItems);
+  };  */
 
-  render() {
-    console.log("rendering form", this.state.todoItem);
-    
-    return (
-      <form onSubmit={this.submitItem}>
-        <input
-          type="text"
-          value= {this.state.todoItem1}
-          placeholder="Add new task here"
-          name="todoItem1"
-          onChange={this.handleChanges}
-        ></input>
-        <button className="add-to-do-btn">
-          <span>Add Todo</span>
-        </button>
-        <button className="clear-btn" onClick={this.props.clearPurchased}>
-          <span>Clear Completed</span>
-        </button>
-      </form>
-    );
-  }
+ // this is a method of App
+  /* const toggleItem = itemId => {
+    console.log(itemId);
+
+    this.setState({
+      todoItems: state.todoItems.map(item => {
+        console.log(item);
+        if (itemId === item.id) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
+
+        return item;
+      })
+    });
+  }; */
+
+  return (
+    <form onSubmit={()=>dispatch({type:'SUBMIT_ITEM'})}>
+      <input
+        type="text"
+        placeholder="Add new task here"
+        name="newInputText"
+        value={newInputText}
+        onChange={handleChanges}
+      ></input>
+      <button className="add-to-do-btn" onClick={()=>dispatch({type:'ADD_TODO'})}>
+        <span>Add Todo</span>
+      </button>
+      <button className="clear-btn" onClick={() => dispatch({type: 'CLEAR_COMPLETED'})}>
+        <span>Clear Completed</span>
+      </button>
+    </form>
+  )
+
+
 }
-
-export default TodoForm;
+export default TodoForm

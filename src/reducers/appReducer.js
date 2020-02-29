@@ -16,9 +16,9 @@ export const initialState = [
 // Initial count is established
 
 // We will use the same reducer we created in the previous section
-export function reducer(state, action) {
+export function appReducer(state, action) {
   switch (action.type) {
-    /*  case 'INCREASE':
+    /*  case 'TODO':
       return { count: state.count + 1 }
     case 'DECREASE':
       return { count: state.count - 1 } */
