@@ -46,7 +46,7 @@ export const initialState = {
           ...state,
           todoItems: state.todoItems.map(item => {
            // console.log(item);
-            if (Date.now() === item.id) {
+            if (action.payload === item.id) {
               return {
                 ...item,
                 completed: !item.completed
