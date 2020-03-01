@@ -4,8 +4,8 @@ import React, { useReducer } from "react";
 
 export const initialState = [
   {
-    item: action.payload,
-    id: Date.now(),
+    item: "",
+    id: new Date(),
     completed: false
   }
 ];
