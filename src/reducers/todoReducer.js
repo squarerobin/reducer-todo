@@ -4,13 +4,15 @@ import React, { useReducer } from "react";
 
 export const initialState = [
   {
-    item: "",
-    id: new Date(),
-    completed: false
+    item: "Learn about reducers",
+    completed: false,
+    id: 3892987588
   }
 ];
 
+// Initial count is established
 
+// We will use the same reducer we created in the previous section
 export function todoReducer(state, action) {
   switch (action.type) {
     

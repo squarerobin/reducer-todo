@@ -1,7 +1,7 @@
 import React, {useState, useReducer} from "react";
 import { todoFormReducer, initialState } from '../../reducers/todoFormReducer';
 
-function TodoForm(props) {
+function TodoForm() {
   const [state, dispatch] = useReducer(todoFormReducer, initialState)
   const [newInputText, setNewInputText] = useState('');
 
@@ -50,7 +50,7 @@ function TodoForm(props) {
   }; */
 
   return (
-    <form onSubmit={ ()=>dispatch({type:'SUBMIT_ITEM'}) }>
+    <form onSubmit={()=>dispatch({type:'SUBMIT_ITEM'})}>
       <input
         type="text"
         placeholder="Add new task here"
