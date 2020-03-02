@@ -18,21 +18,7 @@ function App() {
 
   // logic here
 
-  /*   // Class methods to update state
-    const addItem = (e, item) => {
-      e.preventDefault();
-  
-      const newItem = {
-        name: item,
-        id: Date.now(),
-        completed: false
-      };
-  
-      
-      this.setState({
-        todoItems: [...state.todoItems, newItem],
-       
-      }); */
+
 
   return (
     <div className="app-wrapper">
@@ -40,10 +26,6 @@ function App() {
        <TodoForm />
        <TodoList />
 
-
-
-
-      
 
       <p className="copyright">Copyright {new Date().getFullYear()} - Luis Abellan</p>
 
