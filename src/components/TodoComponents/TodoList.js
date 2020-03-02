@@ -1,6 +1,6 @@
 import React, {useReducer} from "react";
 import Todo from "./Todo";
-import {initialState, todoListReducer} from "../../reducers/TodoListReducer"
+import {initialState, todoListReducer} from "../../reducers/todoListReducer"
 
 const TodoList = (props) => {
 

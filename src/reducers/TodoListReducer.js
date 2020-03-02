@@ -14,7 +14,7 @@ export const initialState = {
            {
              item: "go for a stroll",
              id: Date.now() + Math.random(),
-             completed: false
+             completed: false,
            },
            {
              item: "buy bread",
@@ -33,8 +33,22 @@ export const initialState = {
   
   export const todoListReducer = (state, action) => {
     console.log(action);
+    let newState
     switch (action.type) {
+      case "ADD_TODO":
+        console.log("ADD_TODO state", state);
 
+        newState = {
+          ...state,
+          todoItems: [...state.todoItems, action.payload]
+        };
+        return newState;
+      case "CLEAR_COMPLETED":
+        newState = {
+          ...state,
+          todoItems: state.todoItems.filter(item => item.completed === false)
+        };
+        return newState;
 
       default:
         return state;

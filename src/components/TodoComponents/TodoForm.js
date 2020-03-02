@@ -1,8 +1,7 @@
 import React, { useState, useReducer } from "react";
-import { todoFormReducer, initialState } from '../../reducers/todoFormReducer';
-
+import { initialState, todoListReducer } from "../../reducers/todoListReducer";
 function TodoForm() {
-  const [state, dispatch] = useReducer(todoFormReducer, initialState)
+  const [state,dispatch] = useReducer(initialState,todoListReducer);
   const [newInputText, setNewInputText] = useState('');
 
 
@@ -14,7 +13,7 @@ function TodoForm() {
     // console.log(state);
   };
 
-  // class property to submit form
+  /* // class property to submit form
   /*  const submitItem = e => {
      e.preventDefault()
      props.addItem(e, state.todoItem1)
@@ -47,7 +46,7 @@ function TodoForm() {
         return item;
       })
     });
-  }; */
+  }; */ 
 
   return (
     <form>
