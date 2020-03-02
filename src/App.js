@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import TodoList from "./components/TodoComponents/TodoList"
 import TodoForm from "./components/TodoComponents/TodoForm"
 import "./App.css"
-
+import {initialState, appReducer} from "./reducers/appReducer" 
 
 
 
