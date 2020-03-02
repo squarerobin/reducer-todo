@@ -30,7 +30,7 @@ console.log('TodoListjs state:', state)
   return (
     <div className="todolist-wrapper">
       {state.todoItems.map(item => (
-    <Todo key={item.id} item={item} toggleItem={()=>dispatch({type: 'TOGGLE_ITEM'})} />
+    <Todo key={item.id} item={item.item} toggleItem={()=>dispatch({type: 'TOGGLE_ITEM'})} />
       ))}
 
    
