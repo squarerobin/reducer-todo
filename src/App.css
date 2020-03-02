@@ -184,9 +184,9 @@ html .app-wrapper .item {
   cursor: pointer;
 }
 
-html .app-wrapper .item.completed {
-  -webkit-text-decoration: solid line-through red 0.2rem;
-          text-decoration: solid line-through red 0.2rem;
+html .app-wrapper .item.completed p {
+  -webkit-text-decoration: line-through red;
+          text-decoration: line-through red;
 }
 
 html .app-wrapper .copyright {

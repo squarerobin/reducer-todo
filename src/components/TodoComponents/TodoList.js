@@ -1,16 +1,11 @@
 import React, { useReducer } from "react";
+import Todo from "./Todo";
 
 const TodoList = ({ list, toggleCompleted }) => {
   return (
     <div className="todolist-wrapper">
       {list.map(todo => (
-        <div
-          key={todo.id}
-          onClick={() => toggleCompleted(todo.id)}
-          className={`item${todo.completed ? " completed" : ""}`}
-        >
-          <p>{todo.item}</p>
-        </div>
+        <Todo key={todo.id} todo={todo} toggleCompleted={toggleCompleted} />
       ))}
     </div>
   );

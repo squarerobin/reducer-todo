@@ -142,8 +142,9 @@ html {
       cursor: pointer;
     }
 
-    .item.completed {
-      text-decoration: solid line-through red 0.2rem;
+    .item.completed p{
+      
+      text-decoration:  line-through red ;
 
     }
     .copyright {
