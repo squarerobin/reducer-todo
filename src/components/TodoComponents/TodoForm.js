@@ -1,14 +1,24 @@
 import React, { useState, useReducer } from "react";
-import { initialState, todoListReducer } from "../../reducers/todoListReducer";
-function TodoForm() {
-  const [state, dispatch] = useReducer(initialState, todoListReducer);
-  const [newInputText, setNewInputText] = useState("");
+import { initialState, reducer } from "../../reducers/reducer";
+function TodoForm({ addTodo, clearTodo }) {
+  const [state, dispatch] = useReducer(initialState, reducer);
+  const [newTodo, setNewTodo] = useState("");
 
   const handleChanges = e => {
     // update state with each keystroke
     // console.log(e)
-    setNewInputText(e.target.value);
+    setNewTodo(e.target.value);
     // console.log(state);
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+    addTodo(newTodo);
+    setNewTodo("");
+  };
+
+  const handleClearTodo = e => {
+    e.preventDefault();
+    clearTodo();
   };
   /*   // Class methods to update state
     const addItem = (e, item) => {
@@ -61,29 +71,18 @@ function TodoForm() {
   }; */
 
   return (
-    <form>
+    <form onSubmit = {handleSubmit}>
       <input
         type="text"
         placeholder="Add new task here"
-        name="newInputText"
-        value={newInputText}
+        name="newTodo"
+        value={newTodo}
         onChange={handleChanges}
       ></input>
-      <button
-        className="add-to-do-btn"
-        onClick={() =>
-          dispatch({
-            type: "ADD_TODO",
-            payload: newInputText
-          })
-        }
-      >
+      <button className="add-to-do-btn" type="submit">
         <span>Add Todo</span>
       </button>
-      <button
-        className="clear-btn"
-        onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}
-      >
+      <button className="clear-btn" type="submit" onClick={handleClearTodo}>
         <span>Clear Completed</span>
       </button>
     </form>
