@@ -33,35 +33,51 @@ export const initialState = {
         },
       
       ],
+      todoItem :{
+              item:"",
+               id: Date().now,
+               completed: false
+      }
       
-       todoItem: ""
-      
-      
-  };
+}
+  
   
   export const todoFormReducer = (state, action) => {
     //console.log(action);
+    let newState;
+
     switch (action.type) {
      
-      case 'SUBMIT_ITEM':
-        return {
+      /* case 'SUBMIT_FORM':
+        console.log(action.payload)
+        newState = {
           ...state,
           todoItem: action.payload,
-        };
-       case "ADD_TODO":
+              }
+         return newState */
         
+       case "ADD_TODO":
            console.log('ADD_TODO state', state)
-         return {
-           ...state,
-           todoItems: [...state.todoItems, state.todoItem]
-        }
+        
+          
+           newState = {
+             ...state,
+             todoItems: [...state.todoItems, action.payload,
+
+             ]
+
+           }
+         return newState
         case "CLEAR_COMPLETED":
-            return {
-                ...state,
-                todoItems: state.todoItems.filter(item => item.completed === true)
+          newState = {
+            
+            ...state,
+            todoItems: state.todoItems.filter(item => item.completed === false)
+          }
+                  return newState
     
 
-            }
+            
             
       default:
         return state;

@@ -1,4 +1,4 @@
-import React, {useState, useReducer} from "react";
+import React, { useState, useReducer } from "react";
 import { todoFormReducer, initialState } from '../../reducers/todoFormReducer';
 
 function TodoForm() {
@@ -7,7 +7,7 @@ function TodoForm() {
 
 
 
- const handleChanges = e => {
+  const handleChanges = e => {
     // update state with each keystroke
     // console.log(e)
     setNewInputText(e.target.value)
@@ -15,11 +15,11 @@ function TodoForm() {
   };
 
   // class property to submit form
- /*  const submitItem = e => {
-    e.preventDefault()
-    props.addItem(e, state.todoItem1)
-    setState({ todoItem1: "" })
-  }; */
+  /*  const submitItem = e => {
+     e.preventDefault()
+     props.addItem(e, state.todoItem1)
+     setState({ todoItem1: "" })
+   }; */
   /*  const clearCompleted = e => {
     e.preventDefault();
     this.setState({
@@ -30,7 +30,7 @@ function TodoForm() {
     console.log(state.todoItems);
   };  */
 
- // this is a method of App
+  // this is a method of App
   /* const toggleItem = itemId => {
     console.log(itemId);
 
@@ -50,18 +50,18 @@ function TodoForm() {
   }; */
 
   return (
-    <form onSubmit={()=>dispatch({type:'SUBMIT_ITEM'})}>
+    <form>
       <input
-        type="text"
-        placeholder="Add new task here"
-        name="newInputText"
-        value={newInputText}
-        onChange={handleChanges}
+        type = "text"
+        placeholder = "Add new task here"
+        name = "newInputText"
+        value = {newInputText}
+        onChange = {handleChanges}
       ></input>
-      <button className="add-to-do-btn" onClick={()=>dispatch({type:'ADD_TODO'})}>
+      <button className="add-to-do-btn" onClick={() => dispatch({ type: 'ADD_TODO', payload: newInputText })}>
         <span>Add Todo</span>
       </button>
-      <button className="clear-btn" onClick={() => dispatch({type: 'CLEAR_COMPLETED'})}>
+      <button className="clear-btn" onClick={() => dispatch({ type: 'CLEAR_COMPLETED' })}>
         <span>Clear Completed</span>
       </button>
     </form>
