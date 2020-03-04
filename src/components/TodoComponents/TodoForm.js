@@ -1,7 +1,5 @@
-import React, { useState, useReducer } from "react";
-import { initialState, reducer } from "../../reducers/reducer";
+import React, { useState } from "react";
 function TodoForm({ addTodo, clearTodo }) {
-  const [state, dispatch] = useReducer(initialState, reducer);
   const [newTodo, setNewTodo] = useState("");
 
   const handleChanges = e => {
